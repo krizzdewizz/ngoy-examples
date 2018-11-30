@@ -23,7 +23,7 @@ import ngoy.core.OnDestroy;
 import ngoy.core.Provider;
 import ngoy.forms.FormsModule;
 import ngoyexamples.BeanInjector;
-import ngoyexamples.ExampleName;
+import ngoyexamples.Example;
 import ngoyexamples.todo.components.TodoComponent;
 import ngoyexamples.todo.services.TodoService;
 
@@ -31,7 +31,7 @@ import ngoyexamples.todo.services.TodoService;
 @NgModule(imports = { FormsModule.class }, declarations = { TodoComponent.class })
 @Controller
 @RequestMapping("/todo/**")
-@ExampleName("Todo")
+@Example("Todo")
 public class TodoApp implements OnDestroy, InitializingBean {
 	private static final String REDIRECT_HOME = "redirect:/todo";
 

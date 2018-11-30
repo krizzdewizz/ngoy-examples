@@ -21,7 +21,7 @@ import ngoy.router.Route;
 import ngoy.router.Router;
 import ngoy.router.RouterConfig;
 import ngoy.router.RouterModule;
-import ngoyexamples.ExampleName;
+import ngoyexamples.Example;
 import ngoyexamples.routing.home.HomeComponent;
 import ngoyexamples.routing.settings.SettingsComponent;
 
@@ -29,10 +29,10 @@ import ngoyexamples.routing.settings.SettingsComponent;
 @NgModule()
 @Controller
 @RequestMapping("/router/*")
-@ExampleName("Router")
+@Example("Router")
 public class RouterApp implements InitializingBean {
 
-	public final String title = RouterApp.class.getAnnotation(ExampleName.class)
+	public final String title = RouterApp.class.getAnnotation(Example.class)
 			.value();
 
 	@Inject

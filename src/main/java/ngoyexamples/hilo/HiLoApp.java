@@ -14,13 +14,13 @@ import ngoy.core.Component;
 import ngoy.core.NgModule;
 import ngoy.forms.FormsModule;
 import ngoyexamples.BeanInjector;
-import ngoyexamples.ExampleName;
+import ngoyexamples.Example;
 
 @Component(selector = "", templateUrl = "hilo.component.html")
 @NgModule(imports = { FormsModule.class })
 @Controller
 @RequestMapping("/hilo/**")
-@ExampleName("High-Low Game")
+@Example("High-Low Game")
 public class HiLoApp implements InitializingBean {
 
 	private static final String REDIRECT_URL = "redirect:/hilo";
@@ -30,7 +30,7 @@ public class HiLoApp implements InitializingBean {
 	@Autowired
 	private BeanInjector beanInjector;
 
-	public final String title = HiLoApp.class.getAnnotation(ExampleName.class)
+	public final String title = HiLoApp.class.getAnnotation(Example.class)
 			.value();
 
 	public final Game game = new Game();

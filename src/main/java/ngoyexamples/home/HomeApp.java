@@ -15,18 +15,18 @@ import ngoy.Ngoy;
 import ngoy.core.Component;
 import ngoy.core.OnInit;
 import ngoyexamples.BeanInjector;
-import ngoyexamples.ExampleName;
+import ngoyexamples.Example;
 
 @Controller
 @RequestMapping("/")
 @Component(selector = "", templateUrl = "app.component.html")
 public class HomeApp implements InitializingBean, OnInit {
 
-	public static class Example {
+	public static class ExampleItem {
 		public final String href;
 		public final String name;
 
-		public Example(String href, String name) {
+		public ExampleItem(String href, String name) {
 			this.href = href;
 			this.name = name;
 		}
@@ -35,12 +35,12 @@ public class HomeApp implements InitializingBean, OnInit {
 	@Autowired
 	private BeanInjector beanInjector;
 
-	public Example[] examples;
+	public ExampleItem[] examples;
 
 	@Override
 	public void ngOnInit() {
 		ApplicationContext context = beanInjector.context;
-		String[] exampleApps = context.getBeanNamesForAnnotation(ExampleName.class);
+		String[] exampleApps = context.getBeanNamesForAnnotation(Example.class);
 		examples = Stream.of(exampleApps)
 				.sorted()
 				.map(ex -> {
@@ -50,12 +50,12 @@ public class HomeApp implements InitializingBean, OnInit {
 					String requestMapping = appClass.getAnnotation(RequestMapping.class)
 							.value()[0];
 
-					return new Example(requestMapping.replace("*", "")
+					return new ExampleItem(requestMapping.replace("*", "")
 							.replace("//", "/"),
-							appClass.getAnnotation(ExampleName.class)
+							appClass.getAnnotation(Example.class)
 									.value());
 				})
-				.toArray(Example[]::new);
+				.toArray(ExampleItem[]::new);
 	}
 
 	private Ngoy<HomeApp> app;
