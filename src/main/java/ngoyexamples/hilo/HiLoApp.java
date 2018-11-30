@@ -16,7 +16,7 @@ import ngoy.forms.FormsModule;
 import ngoyexamples.BeanInjector;
 import ngoyexamples.ExampleName;
 
-@Component(selector = "", templateUrl = "app.component.html")
+@Component(selector = "", templateUrl = "hilo.component.html")
 @NgModule(imports = { FormsModule.class })
 @Controller
 @RequestMapping("/hilo/**")

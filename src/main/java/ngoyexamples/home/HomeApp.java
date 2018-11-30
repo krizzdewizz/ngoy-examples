@@ -1,4 +1,4 @@
-package ngoyexamples;
+package ngoyexamples.home;
 
 import java.util.stream.Stream;
 
@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ngoy.Ngoy;
 import ngoy.core.Component;
 import ngoy.core.OnInit;
+import ngoyexamples.BeanInjector;
+import ngoyexamples.ExampleName;
 
 @Controller
 @RequestMapping("/")
-@Component(selector = "", template = "<h1>ngoy examples</h1><ul><li *ngFor=\"let it of examples\"><a [href]=\"it.href\">{{it.name}}</a></li></ul>")
+@Component(selector = "", templateUrl = "app.component.html")
 public class HomeApp implements InitializingBean, OnInit {
 
 	public static class Example {
