@@ -17,7 +17,7 @@ import ngoy.core.OnInit;
 
 @Controller
 @RequestMapping("/")
-@Component(selector = "", template = "<h1>ngoy examples</h1><a *ngFor=\"let it of examples\" [href]=\"it.href\">{{it.name}}</a>")
+@Component(selector = "", template = "<h1>ngoy examples</h1><ul><li *ngFor=\"let it of examples\"><a [href]=\"it.href\">{{it.name}}</a></li></ul>")
 public class HomeApp implements InitializingBean, OnInit {
 
 	public static class Example {
@@ -40,6 +40,7 @@ public class HomeApp implements InitializingBean, OnInit {
 		ApplicationContext context = beanInjector.context;
 		String[] exampleApps = context.getBeanNamesForAnnotation(ExampleName.class);
 		examples = Stream.of(exampleApps)
+				.sorted()
 				.map(ex -> {
 					Class<?> appClass = context.getBean(ex)
 							.getClass();
@@ -59,11 +60,17 @@ public class HomeApp implements InitializingBean, OnInit {
 
 	@GetMapping()
 	public void home(HttpServletResponse response) throws Exception {
+		// re-recreate while developing to have changes picked-up
+//		createApp();
 		app.render(response.getOutputStream());
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		createApp();
+	}
+
+	private void createApp() {
 		app = Ngoy.app(HomeApp.class)
 				.injectors(beanInjector)
 				.build();

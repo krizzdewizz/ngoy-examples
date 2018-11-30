@@ -49,6 +49,10 @@ public class HiLoApp implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
+		createApp();
+	}
+
+	private void createApp() {
 		ngoy = Ngoy.app(HiLoApp.class)
 				.injectors(beanInjector)
 				.build();
@@ -56,6 +60,8 @@ public class HiLoApp implements InitializingBean {
 
 	@GetMapping()
 	public void home(HttpServletResponse response) throws Exception {
+		// re-recreate while developing to have changes picked-up
+//		createApp();
 		ngoy.render(response.getOutputStream());
 	}
 }
