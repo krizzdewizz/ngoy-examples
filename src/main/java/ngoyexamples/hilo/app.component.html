@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>ngoy - {{title}}</title>
+
+<style>
+.numbers {
+	display: flex;
+}
+</style>
+
+</head>
+
+<body>
+	<h1>{{title}}</h1>
+
+	<h2 *ngIf="game.found">Excellent! Found with {{ game.guesses }} guesses.</h2>
+	<h2 *ngIf="game.tooLow">Too low.</h2>
+	<h2 *ngIf="game.tooHigh">Too high.</h2>
+
+	<ng-container *ngIf="!game.found">
+		<p>Guess a number:</p>
+		<div class="numbers">
+			<button [(click)]="{'guess', {number: nbr}}" *ngFor="let nbr of game.numbers">{{nbr}}</button>
+		</div>
+	</ng-container>
+
+	<br>
+	<button (click)="initGame">New Game</button>
+	<!-- 
+	<pre>secret: {{ game.secretNumber }}, guesses: {{ game.guesses }}, state: {{ game.state }}</pre>
+	 -->
+</body>
+
+</html>
