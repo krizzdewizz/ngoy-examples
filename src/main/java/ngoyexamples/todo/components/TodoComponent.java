@@ -11,7 +11,4 @@ import ngoyexamples.todo.Todo;
 public class TodoComponent {
 	@Input
 	public Todo todo;
-
-	@Input
-	public String deleteAction;
 }

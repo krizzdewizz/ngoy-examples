@@ -91,8 +91,8 @@ public class TodoApp implements OnDestroy, InitializingBean {
 
 	@GetMapping()
 	public void home(HttpServletResponse response) throws Exception {
-		// re-recreate while developing to have changes picked-up
-//		createApp();
+		// re-create while developing to have changes picked-up
+		createApp();
 		ngoy.render(response.getOutputStream());
 	}
 }

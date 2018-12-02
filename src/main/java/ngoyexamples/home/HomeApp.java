@@ -62,7 +62,7 @@ public class HomeApp implements InitializingBean, OnInit {
 
 	@GetMapping()
 	public void home(HttpServletResponse response) throws Exception {
-		// re-recreate while developing to have changes picked-up
+		// re-create while developing to have changes picked-up
 //		createApp();
 		app.render(response.getOutputStream());
 	}

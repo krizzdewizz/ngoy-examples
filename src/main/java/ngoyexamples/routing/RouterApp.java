@@ -56,7 +56,7 @@ public class RouterApp implements InitializingBean {
 		// render all the routes to a folder in the file system
 //		ngoy.renderSite(java.nio.file.Paths.get("site"));
 
-		// re-recreate while developing to have changes picked-up
+		// re-create while developing to have changes picked-up
 //		createApp();
 
 		ngoy.render(response.getOutputStream());
