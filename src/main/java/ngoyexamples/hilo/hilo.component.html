@@ -21,14 +21,14 @@
 <body class="container">
 	<h1>{{title}}</h1>
 
-	<h2 *ngIf="game.found">Excellent! Found with {{ game.guesses }} guesses.</h2>
-	<h2 *ngIf="game.tooLow">Too low.</h2>
-	<h2 *ngIf="game.tooHigh">Too high.</h2>
+	<h2 *ngIf="game.found()">Excellent! Found with {{ game.guesses }} guesses.</h2>
+	<h2 *ngIf="game.tooLow()">Too low.</h2>
+	<h2 *ngIf="game.tooHigh()">Too high.</h2>
 
-	<ng-container *ngIf="!game.found">
+	<ng-container *ngIf="!game.found()">
 		<p>Guess a number:</p>
 		<div class="numbers">
-			<button [(click)]="{'guess', {number: nbr}}" *ngFor="let nbr of game.numbers">{{nbr}}</button>
+			<button [(click)]="List('guess', Map('number', nbr))" *ngFor="let nbr of game.numbers">{{nbr}}</button>
 		</div>
 	</ng-container>
 
