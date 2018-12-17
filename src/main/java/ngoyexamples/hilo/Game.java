@@ -40,15 +40,15 @@ public class Game {
 		secretNumber = random.nextInt(10) + 1;
 	}
 
-	public boolean tooLow() {
+	public boolean isTooLow() {
 		return state == State.TOO_LOW;
 	}
 
-	public boolean tooHigh() {
+	public boolean isTooHigh() {
 		return state == State.TOO_HIGH;
 	}
 
-	public boolean found() {
+	public boolean isFound() {
 		return state == State.FOUND;
 	}
 }

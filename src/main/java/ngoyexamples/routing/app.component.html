@@ -15,8 +15,8 @@
 	<h1>{{title}}</h1>
 
 	<ul class="nav nav-tabs">
-		<li class="nav-item" *ngFor="let route of getRoutes()">
-			<a class="nav-link" [class.active]="isActiveRoute(route)" [routerLink]="route.getPath()">{{route.getPath()}}</a>
+		<li class="nav-item" *ngFor="let route of routes">
+			<a class="nav-link" [class.active]="isActiveRoute(route)" [routerLink]="route.path">{{route.path}}</a>
 		</li>
 	</ul>
 
