@@ -38,7 +38,7 @@ public class HomeApp implements InitializingBean, OnInit {
 	public ExampleItem[] examples;
 
 	@Override
-	public void ngOnInit() {
+	public void onInit() {
 		ApplicationContext context = beanInjector.context;
 		String[] exampleApps = context.getBeanNamesForAnnotation(Example.class);
 		examples = Stream.of(exampleApps)

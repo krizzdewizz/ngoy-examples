@@ -47,7 +47,7 @@ public class TodoApp implements OnDestroy, InitializingBean {
 	public boolean textRequired;
 
 	@Override
-	public void ngOnDestroy() {
+	public void onDestroy() {
 		deletedTodo = null;
 		textRequired = false;
 	}

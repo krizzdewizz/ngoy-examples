@@ -28,7 +28,7 @@
 	<ng-container *ngIf="!game.found">
 		<p>Guess a number:</p>
 		<div class="numbers">
-			<button [(click)]="List('guess', Map('number', nbr))" *ngFor="let nbr of game.numbers">{{nbr}}</button>
+			<button [(click)]="$list('guess', $map('number', nbr))" *ngFor="let nbr of game.numbers">{{nbr}}</button>
 		</div>
 	</ng-container>
 
