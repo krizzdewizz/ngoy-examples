@@ -29,8 +29,7 @@ public class HiLoApp implements InitializingBean {
     @Autowired
     private BeanInjector beanInjector;
 
-    public final String title = HiLoApp.class.getAnnotation(Example.class)
-            .value();
+    public final String title = HiLoApp.class.getAnnotation(Example.class).value();
 
     public final Game game = new Game();
 
@@ -47,7 +46,7 @@ public class HiLoApp implements InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         createApp();
     }
 

@@ -30,8 +30,7 @@ import java.util.List;
 @Example("Router")
 public class RouterApp implements InitializingBean {
 
-    public final String title = RouterApp.class.getAnnotation(Example.class)
-            .value();
+    public final String title = RouterApp.class.getAnnotation(Example.class).value();
 
     @Inject
     public Router router;
@@ -61,7 +60,7 @@ public class RouterApp implements InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         createApp();
     }
 

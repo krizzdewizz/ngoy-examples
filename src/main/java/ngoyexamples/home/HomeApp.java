@@ -42,16 +42,13 @@ public class HomeApp implements InitializingBean, OnInit {
         examples = Stream.of(exampleApps)
                 .sorted()
                 .map(ex -> {
-                    Class<?> appClass = context.getBean(ex)
-                            .getClass();
+                    Class<?> appClass = context.getBean(ex).getClass();
 
-                    String requestMapping = appClass.getAnnotation(RequestMapping.class)
-                            .value()[0];
+                    String requestMapping = appClass.getAnnotation(RequestMapping.class).value()[0];
 
-                    return new ExampleItem(requestMapping.replace("*", "")
-                            .replace("//", "/"),
-                            appClass.getAnnotation(Example.class)
-                                    .value());
+                    return new ExampleItem(
+                            requestMapping.replace("*", "").replace("//", "/"),
+                            appClass.getAnnotation(Example.class).value());
                 })
                 .toArray(ExampleItem[]::new);
     }
@@ -66,7 +63,7 @@ public class HomeApp implements InitializingBean, OnInit {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         createApp();
     }
 

@@ -20,8 +20,7 @@ public class BeanInjector implements Injector {
 
     @Override
     public <T> T get(Class<T> clazz) {
-        return context.getBeansOfType(clazz)
-                .isEmpty() ? null : context.getBean(clazz);
+        return context.getBeansOfType(clazz).isEmpty() ? null : context.getBean(clazz);
     }
 
 }

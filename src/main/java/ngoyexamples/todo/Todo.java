@@ -10,10 +10,8 @@ public class Todo {
     public final LocalDateTime created;
 
     public Todo(String text) {
-        this.id = UUID.randomUUID()
-                .toString();
+        this.id = UUID.randomUUID().toString();
         this.created = LocalDateTime.now();
         this.text = text;
     }
-
 }

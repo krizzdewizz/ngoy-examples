@@ -55,7 +55,7 @@ public class TodoApp implements OnDestroy, InitializingBean {
     }
 
     @PostMapping("add")
-    public String addTodo(String text) throws Exception {
+    public String addTodo(String text) {
         boolean ok = isSet(text);
         textRequired = !ok;
         if (ok) {
@@ -65,7 +65,7 @@ public class TodoApp implements OnDestroy, InitializingBean {
     }
 
     @PostMapping("delete")
-    public String deleteTodo(String id) throws Exception {
+    public String deleteTodo(String id) {
         todoService.getTodo(id)
                 .ifPresent(todo -> {
                     deletedTodo = todo.text;
@@ -83,7 +83,7 @@ public class TodoApp implements OnDestroy, InitializingBean {
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         createApp();
     }
 

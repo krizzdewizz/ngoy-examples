@@ -13,8 +13,7 @@ public class Game {
 
     private final Random random = new Random(System.nanoTime());
 
-    public final int[] numbers = IntStream.rangeClosed(1, 10)
-            .toArray();
+    public final int[] numbers = IntStream.rangeClosed(1, 10).toArray();
 
     public int secretNumber;
     public int guesses;
